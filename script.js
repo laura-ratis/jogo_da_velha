@@ -51,27 +51,28 @@ function resultado(){
     var c2 = document.getElementById('c2').innerText
     var c3 = document.getElementById('c3').innerText
 
-    if(v == 9){ //verifica se deu velha
-        window.alert(`Deu velha!`)
-    }
-    else{
         //verifica se houve um vencedor
-        if(a1 == jogadorAtual && ((a2 == jogadorAtual && a3 == jogadorAtual) || (b1 == jogadorAtual && c1 == jogadorAtual) ||(b2 == jogadorAtual && c3 == jogadorAtual))){
+    if(a1 == jogadorAtual && ((a2 == jogadorAtual && a3 == jogadorAtual) || (b1 == jogadorAtual && c1 == jogadorAtual) ||(b2 == jogadorAtual && c3 == jogadorAtual))){
+        res = false
+        vencedor = jogadorAtual
+    }else{
+        if(b2 == jogadorAtual && ((b1 == jogadorAtual && b3 == jogadorAtual) || (a2 == jogadorAtual && c2 == jogadorAtual) || (a3 == jogadorAtual && c1 == jogadorAtual))){
             res = false
             vencedor = jogadorAtual
         }else{
-            if(b2 == jogadorAtual && ((b1 == jogadorAtual && b3 == jogadorAtual) || (a2 == jogadorAtual && c2 == jogadorAtual) || (a3 == jogadorAtual && c1 == jogadorAtual))){
+            if(c3 ==jogadorAtual && ((a3 == jogadorAtual && b3 == jogadorAtual) || (c1 == jogadorAtual &&  c2 == jogadorAtual))){
                 res = false
                 vencedor = jogadorAtual
-            }else{
-                if(c3 ==jogadorAtual && ((a3 == jogadorAtual && b3 == jogadorAtual) || (c1 == jogadorAtual &&  c2 == jogadorAtual))){
-                    res = false
-                    vencedor = jogadorAtual
+            }
+            else{
+                if(v==9){
+                    window.alert(`Deu velha!`)
                 }
             }
         }
-
     }
+
+        
 
     if(!res){ //indica o vencedor
         window.alert(`O jogador ${jogadorAtual} é o vencedor`)
